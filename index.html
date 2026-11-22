@@ -1,55 +1,82 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>NETHRA Robot Monitoring System</title>
-
+    <title>NETRA - Robot Mission Control</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Header defines the heading/top section of the webpage -->
-    <header class="topbar">
+    <header class="header">
 
-        <!-- Part 1: Brand Logo and Name -->
-        <div class="brand">
+        <!-- LEFT: LOGO AND BRAND -->
+        <div class="brand-section">
 
-            <div class="brand-logo">N</div>
+            <div class="logo-box">
+                <span>N</span>
+            </div>
 
-            <div>
-                <h1>NETHRA</h1>
+            <div class="brand-text">
+                <h1>NETRA</h1>
                 <p>ROBOT MISSION CONTROL</p>
             </div>
 
         </div>
 
-        <!-- Part 2: Navigation Links -->
-        <nav>
-            <a href="#dashboard">Dashboard</a>
-            <a href="#fleet">Fleet</a>
-            <a href="#telemetry">Telemetry</a>
-            <a href="#alerts">Alerts</a>
+
+        <!-- CENTER: NAVIGATION -->
+        <nav class="nav-section">
+            <a href="#">Dashboard</a>
+            <a href="#">Fleet</a>
+            <a href="#">Telemetry</a>
+            <a href="#">Alerts</a>
         </nav>
 
-        <!-- Part 3: System Status and Live Clock -->
-        <div class="header-right">
+
+        <!-- RIGHT: SYSTEM STATUS -->
+        <div class="status-section">
 
             <span class="online-dot"></span>
 
-            <span>SYSTEM ONLINE</span>
+            <span class="online-text">
+                SYSTEM ONLINE
+            </span>
 
-            <strong id="clock">--:--:--</strong>
+            <span class="clock" id="clock">
+                6:41:32 am
+            </span>
 
+        </div>
+
+
+        <!-- DISPATCH BUTTON -->
+        <div class="button-section">
+            <button class="dispatch-button">
+                +Dispatch Mission
+            </button>
         </div>
 
     </header>
 
-</body>
+    <script>
+        function updateClock() {
+            const now = new Date();
 
+            document.getElementById("clock").textContent =
+                now.toLocaleTimeString("en-US", {
+                    hour: "numeric",
+                    minute: "2-digit",
+                    second: "2-digit",
+                    hour12: true
+                });
+        }
+
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
+
+</body>
 </html>
